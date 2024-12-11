@@ -1,0 +1,59 @@
+{% extends "pages/bases.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<h1>Welcome</h1>
+
+{% if weather_data %}
+<div class="weather">
+    <h2>Weather Forecast for Bac Kan</h2>
+    <p>Temperature: {{ weather_data.current.temp_c }}°C</p>
+    <p>Weather: {{ weather_data.current.condition.text }}</p>
+    <p>Humidity: {{ weather_data.current.humidity }}%</p>
+    <p>Wind Speed: {{ weather_data.current.wind_kph }} kph</p>
+</div>
+{% else %}
+<p>Weather data is not available at the moment.</p>
+{% endif %}
+
+<div class="row">
+    <div class="col-md-6">
+        {% if relief_locations %}
+        <h2>Relief Locations</h2>
+        <ul>
+            {% for location in relief_locations %}
+            <li>
+                <strong>{{ location.name }}</strong><br>
+                Mobile: {{ location.mobile }}<br>
+                Latitude: {{ location.latitude }}<br>
+                Longitude: {{ location.longitude }}<br>
+                Description: {{ location.description }}<br>
+                {% if location.image %}
+                <img src="{{ location.image.url }}" alt="{{ location.name }}" style="max-width: 200px;">
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+    <div class="col-md-6">
+        {% if accident_locations %}
+        <h2>Accident Locations</h2>
+        <ul>
+            {% for location in accident_locations %}
+            <li>
+                <strong>{{ location.name }}</strong><br>
+                Mobile: {{ location.mobile }}<br>
+                Latitude: {{ location.latitude }}<br>
+                Longitude: {{ location.longitude }}<br>
+                Description: {{ location.description }}<br>
+                {% if location.image %}
+                <img src="{{ location.image.url }}" alt="{{ location.name }}" style="max-width: 200px;">
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}
