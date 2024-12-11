@@ -11,4 +11,5 @@ urlpatterns = [
     path("500/", views.error_500, name='error_500'),
     path("accounts/", include('django.contrib.auth.urls')),
     path("register/", views.register, name='register'),  # Add this line for the register URL
+    path('map/', views.map_view, name='map'),
 ]

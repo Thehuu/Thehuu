@@ -34,3 +34,6 @@ def error_500(request):
 
 def register(request):
     return render(request, 'register.html')
+
+def map_view(request):
+    return render(request, 'map/map.html')
