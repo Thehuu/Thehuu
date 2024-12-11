@@ -9,5 +9,6 @@ urlpatterns = [
     path("contact/", views.contact, name='contact'),
     path("404/", views.error_404, name='error_404'),
     path("500/", views.error_500, name='error_500'),
-    path("accounts/", include('django.contrib.auth.urls')),  # Include authentication URLs
+    path("accounts/", include('django.contrib.auth.urls')),
+    path("register/", views.register, name='register'),  # Add this line for the register URL
 ]
