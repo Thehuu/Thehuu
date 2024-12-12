@@ -16,30 +16,53 @@ h1 {
   height: 497px;
   width: 100%;
   transition: width 0.3s;
+  flex-grow: 1;
 }
 
 /* Container chính bao quanh bản đồ và form */
 .container-map {
-  height: auto;
-  margin: 2px auto;
-  top: 7px;
-  bottom: auto;
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: auto;
-  position: relative;
+  height: auto;
+}
+
+/* Form báo cáo */
+#map {
+  height: 497px;
+  width: 100%;
+  transition: width 0.3s;
+}
+/* Nút Report */
+#report-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+/* Nút Relief và Accident */
+#relief-button, #accident-button {
+  display: none;
+  margin-top: 10px;
 }
 
 /* Kiểm soát kích thước form */
 .form-container {
-  width: auto;
+  width: 0;
+  overflow: hidden;
+  transition: width 0.3s;
   padding: 1%;
   background-color: #162447;
   border-radius: 10px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
   top: 7px;
   display: none; /* Ban đầu form bị ẩn */
+}
+
+/* Khi form hiện */
+.form-container.show {
+  width: 30%; /* Điều chỉnh kích thước form theo ý bạn */
+  display: block;
 }
 
 /* Thiết lập các thẻ p trong form */

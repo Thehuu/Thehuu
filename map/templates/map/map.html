@@ -42,38 +42,24 @@
             <button class="btn btn-danger" onclick="showForm('accident')">Accident</button>
         </div>
 
-        <div id="report-form" style="display: none;">
-            <h3 id="form-title">Report Location</h3>
-            <form method="post" enctype="multipart/form-data">
-                {% csrf_token %}
-                <input type="hidden" id="report-type" name="report_type">
-                <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name" name="name">
-                </div>
-                <div class="form-group">
-                    <label for="mobile">Mobile:</label>
-                    <input type="text" class="form-control" id="mobile" name="mobile">
-                </div>
-                <div class="form-group">
-                    <label for="latitude">Latitude:</label>
-                    <input type="text" class="form-control" id="latitude" name="latitude">
-                </div>
-                <div class="form-group">
-                    <label for="longitude">Longitude:</label>
-                    <input type="text" class="form-control" id="longitude" name="longitude">
-                </div>
-                <div class="form-group">
-                    <label for="description">Description:</label>
-                    <textarea class="form-control" id="description" name="description"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" class="form-control" id="image" name="image">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+        <div class="container-map">
+            <div id="map"></div>
+            <div class="form-container" id="report-form">
+                <!-- Nội dung form báo cáo -->
+            </div>
         </div>
+
+        <script>
+        function showReportOptions() {
+            document.getElementById('report-options').style.display = 'block';
+        }
+
+        function showForm(type) {
+            document.getElementById('report-form').style.display = 'block';
+            document.getElementById('report-type').value = type;
+            document.getElementById('map').style.flex = '0 0 70%';
+        }
+        </script>
     </div>
 </body>
 </html>

@@ -77,5 +77,37 @@ function showForm(reportType) {
     document.getElementById('form-title').innerText = `Report ${reportType.charAt(0).toUpperCase() + reportType.slice(1)} Location`;
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+  const reportButton = document.getElementById('report-button');
+  const reliefButton = document.getElementById('relief-button');
+  const accidentButton = document.getElementById('accident-button');
+  const reportForm = document.getElementById('report-form');
+
+  reportButton.addEventListener('click', () => {
+    reliefButton.style.display = 'block';
+    accidentButton.style.display = 'block';
+  });
+
+  reliefButton.addEventListener('click', () => {
+    reportForm.style.display = 'block';
+    document.getElementById('report-type').value = 'relief';
+  });
+
+  accidentButton.addEventListener('click', () => {
+    reportForm.style.display = 'block';
+    document.getElementById('report-type').value = 'accident';
+  });
+
+  document.getElementById('report-button').addEventListener('click', function() {
+    var formContainer = document.getElementById('report-form');
+    formContainer.classList.toggle('show');
+    
+    if (formContainer.classList.contains('show')) {
+      document.getElementById('map').style.width = '70%'; // Điều chỉnh kích thước map theo ý bạn
+    } else {
+      document.getElementById('map').style.width = '100%';
+    }
+  });
+});
 
 window.onload = initMap;
